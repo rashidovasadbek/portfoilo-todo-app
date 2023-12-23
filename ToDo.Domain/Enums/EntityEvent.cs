@@ -2,5 +2,8 @@
 
 public enum EntityEvent
 {
-    
+    OnGet,
+    OnCreate,
+    OnUpdate,
+    OnDelete
 }
