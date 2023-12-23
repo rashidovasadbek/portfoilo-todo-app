@@ -1,6 +1,19 @@
-﻿namespace ToDo.Persistece.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using ToDo.Domain.Entities;
 
-public class AppDbContext
+namespace ToDo.Persistence.DataContext;
+
+public class AppDbContext : DbContext
 {
-    
+    public DbSet<TodoItem> Todos => Set<TodoItem>();
+
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+        
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+    }
 }

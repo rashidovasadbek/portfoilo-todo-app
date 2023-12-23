@@ -1,6 +1,13 @@
-﻿namespace ToDo.Persistece.EntityConfiguration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ToDo.Domain.Entities;
 
-public class TodoItemConfiguration
+namespace ToDo.Persistece.EntityConfiguration;
+
+public class TodoItemConfiguration : IEntityTypeConfiguration<TodoItem>
 {
-    
+    public void Configure(EntityTypeBuilder<TodoItem> builder)
+    {
+        builder.Property(todo => todo.Title).IsRequired().HasMaxLength(128);
+    }
 }
