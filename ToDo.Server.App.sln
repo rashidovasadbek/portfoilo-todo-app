@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Domain", "ToDo.Domain\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Infrastructure", "ToDo.Infrastructure\ToDo.Infrastructure.csproj", "{DCB964DD-6333-4CC2-A4EF-5F81329B7A07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Persistece", "ToDo.Persistece\ToDo.Persistece.csproj", "{2752F927-213D-4070-A5A6-052A85E38197}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Persistence", "ToDo.Persistence\ToDo.Persistence.csproj", "{2752F927-213D-4070-A5A6-052A85E38197}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
