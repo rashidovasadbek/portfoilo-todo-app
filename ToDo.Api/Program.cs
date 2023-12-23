@@ -1,6 +1,11 @@
+using ToDo.Api.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
+
+await builder.ConfigureAsync();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+await app.ConfigureAsync();
 
-app.Run();
+ await app.RunAsync();
