@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ToDo.Persistece.Migrations
 {
     /// <inheritdoc />
-    public partial class Add_ToDo : Migration
+    public partial class Add_Todo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,7 @@ namespace ToDo.Persistece.Migrations
                     IsDone = table.Column<bool>(type: "boolean", nullable: false),
                     IsFavorite = table.Column<bool>(type: "boolean", nullable: false),
                     DueTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    RemainderTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    ReminderTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     ModifiedTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },

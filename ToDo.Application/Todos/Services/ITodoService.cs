@@ -12,7 +12,7 @@ public interface ITodoService
     ValueTask<TodoItem> CreateAsync(TodoItem todoItem, bool saveChanges = true,
         CancellationToken cancellationToken = default);
 
-    ValueTask<bool> UpDateAsync(TodoItem todoItem, CancellationToken cancellationToken = default);
+    ValueTask<bool> UpdateAsync(TodoItem todoItem, CancellationToken cancellationToken = default);
 
     ValueTask<bool> DeleteByIdAsync(Guid todoId, CancellationToken cancellationToken = default);
 }

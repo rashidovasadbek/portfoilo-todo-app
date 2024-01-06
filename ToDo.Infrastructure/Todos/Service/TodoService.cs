@@ -44,11 +44,11 @@ public class TodoService(ITodoRepository todoRepository, IValidator<TodoItem> to
         return todoRepository.CreateAsync(todoItem, saveChanges, cancellationToken);
     }
 
-    public ValueTask<bool> UpDateAsync(TodoItem todoItem, CancellationToken cancellationToken = default)
+    public ValueTask<bool> UpdateAsync(TodoItem todoItem, CancellationToken cancellationToken = default)
     {
         var validationResult = todoValidator.Validate(todoItem);
 
-        if (validationResult.IsValid)
+        if (!validationResult.IsValid)
             throw new ValidationException(validationResult.Errors.ToString());
 
         return todoRepository.UpdateAsync(todoItem, cancellationToken);

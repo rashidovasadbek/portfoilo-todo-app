@@ -43,7 +43,7 @@ namespace ToDo.Persistece.Migrations
                     b.Property<DateTimeOffset?>("ModifiedTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTimeOffset>("RemainderTime")
+                    b.Property<DateTimeOffset>("ReminderTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Title")
