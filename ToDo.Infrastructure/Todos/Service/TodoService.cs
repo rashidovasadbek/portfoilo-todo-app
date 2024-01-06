@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.ComponentModel.Design;
+using System.Linq.Expressions;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
@@ -35,9 +36,8 @@ public class TodoService(ITodoRepository todoRepository, IValidator<TodoItem> to
     public ValueTask<TodoItem> CreateAsync(TodoItem todoItem, bool saveChanges = true, CancellationToken cancellationToken = default)
     {
         var validationResult = todoValidator.Validate(todoItem);
-        
         if (!validationResult.IsValid)
-            throw new ValidationException(validationResult.Errors);
+                throw new ValidationException(validationResult.Errors.ToString());
 
         todoItem.CreatedTime = DateTimeOffset.UtcNow;
 
@@ -46,11 +46,16 @@ public class TodoService(ITodoRepository todoRepository, IValidator<TodoItem> to
 
     public ValueTask<bool> UpDateAsync(TodoItem todoItem, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var validationResult = todoValidator.Validate(todoItem);
+
+        if (validationResult.IsValid)
+            throw new ValidationException(validationResult.Errors.ToString());
+
+        return todoRepository.UpdateAsync(todoItem, cancellationToken);
     }
 
     public ValueTask<bool> DeleteByIdAsync(Guid todoId, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        return todoRepository.DeleteByIdAsync(todoId, cancellationToken);
     }
 }
